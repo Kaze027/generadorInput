@@ -14,11 +14,9 @@
 		<input type="number" id="cantidad" value="10">
 		<button onclick="myFunction()" class="btn btn-info">Agregar inputs</button><br>
 	</div>
-	
 
 	<script>
 		function myFunction(){
-			
 			var cant = parseInt(document.getElementById("cantidad").value);
 
 			var clases = ["btn-primary"]
@@ -28,6 +26,10 @@
 
 			for (i = 1; i <= cant; i++) {				
 				var newInp = document.createElement("input");
+
+				newInp.setAttribute("id", "input"+h);
+				newInp.setAttribute("value", "");
+
 				var newBtn = document.createElement("button");
 
 				newBtn.innerHTML = "Boton no "+h;
@@ -36,16 +38,24 @@
 				newBtn.setAttribute("value", "BOTON"+h);
 				newBtn.setAttribute("class", "btn "+clases[c]);
 
+				var out = document.createElement("br");
+
 				document.body.appendChild(newInp);
 				document.body.appendChild(newBtn);
+				document.body.appendChild(out);
+
+				newBtn.addEventListener("click", (function(tId){
+					return function(){
+						alert(document.getElementById(tId).value);
+					}
+				}
+				)("input[h]"), false);
 
 				h++;
 			}
 
-			
-			
-		}
 
+		}
 	</script>
 </body>
 </html>
