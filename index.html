@@ -21,15 +21,16 @@
 			
 			var cant = parseInt(document.getElementById("cantidad").value);
 
-			var clases = ["btn btn-primary"]
+			var clases = ["btn-primary"]
 
-			for (i = 1; i <= cant; i++) {
-				var h = 1;
-				var c = 0;
+			var h = 1;
+			var c = 0;
+
+			for (i = 1; i <= cant; i++) {				
 				var newInp = document.createElement("input");
 				var newBtn = document.createElement("button");
 
-				newBtn.innerHtml = "Soy el boton";
+				newBtn.innerHTML = "Boton no "+h;
 
 				newBtn.setAttribute("id", "boton"+h);
 				newBtn.setAttribute("value", "BOTON"+h);
@@ -37,6 +38,8 @@
 
 				document.body.appendChild(newInp);
 				document.body.appendChild(newBtn);
+
+				h++;
 			}
 
 			
