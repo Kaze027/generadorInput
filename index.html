@@ -8,7 +8,41 @@
 	
 </head>
 <body>
-
+	<h1>Generador de inputs</h1>
+	<p>¿Cuantos elementos desea agregar?</p>
+	<div>
+		<input type="number" id="cantidad" value="10">
+		<button onclick="myFunction()" class="btn btn-info">Agregar inputs</button><br>
+	</div>
 	
+
+	<script>
+		function myFunction(){
+			
+			var cant = parseInt(document.getElementById("cantidad").value);
+
+			var clases = ["btn btn-primary"]
+
+			for (i = 1; i <= cant; i++) {
+				var h = 1;
+				var c = 0;
+				var newInp = document.createElement("input");
+				var newBtn = document.createElement("button");
+
+				newBtn.innerHtml = "Soy el boton";
+
+				newBtn.setAttribute("id", "boton"+h);
+				newBtn.setAttribute("value", "BOTON"+h);
+				newBtn.setAttribute("class", "btn "+clases[c]);
+
+				document.body.appendChild(newInp);
+				document.body.appendChild(newBtn);
+			}
+
+			
+			
+		}
+
+	</script>
 </body>
 </html>
